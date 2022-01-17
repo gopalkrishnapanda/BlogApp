@@ -1,10 +1,19 @@
+<%= link_to "Home" ,root_path %>
 <h1><%= @article.title %></h1>
 
 <p><%= @article.body %></p>
 
 <ul>
   <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article),
+  <li><%= link_to "Delete", article_path(@article),
                   method: :delete,
                   data: { confirm: "Are you sure?" } %></li>
 </ul>
+
+<!-- renders all the comments in a particular article -->
+<h2>Comments :</h2>
+<%= render "comments/comment" %>
+
+<!-- renders the comment form using a partial: comments/_form.html -->
+<%= render "comments/form" %>
+
